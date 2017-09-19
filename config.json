@@ -1,0 +1,13 @@
+{
+  "name": "mojave_bcet",
+  "output_dir": "./output",
+  "roi": {
+    "top_left": [
+      343216,
+      4048699
+    ],"bottom_right": [
+      497095,
+      3952415
+    ]
+  }
+}
