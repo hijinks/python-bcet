@@ -1,4 +1,11 @@
+#!/usr/bin/env python
+
 # BCET Workflow 
+
+__author__ = 'Sam Brooke'
+__date__ = 'September 2017'
+__copyright__ = '(C) 2017, Sam Brooke'
+__email__ = "sbrooke@tuta.io"
 
 import os
 from geopandas import GeoDataFrame
