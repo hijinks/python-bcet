@@ -8,6 +8,7 @@ __copyright__ = '(C) 2017, Sam Brooke'
 __email__ = "sbrooke@tuta.io"
 
 import os
+import gdal
 from geopandas import GeoDataFrame
 from shapely.geometry import Polygon
 import georasters as gr
@@ -173,5 +174,11 @@ new_path = os.path.join(output_dir_full,file_prefix+'_'+run_title+'_'+band_name)
 print('Outputing '+new_path+' ...')
 # Make Geotiff
 output_gr.to_tiff(new_path)
+
+# Add some metadata
+
+ds = gdal.Open(new_path+'.tif', gdal.GA_Update)
+ds.SetMetadataItem('ORIGINAL_LANDSAT', os.path.basename(landsat_raster))
+ds.FlushCache()
 
 
