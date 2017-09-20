@@ -56,7 +56,8 @@ if len(rasters) > 0 and len(coordinates) > 0:
 	for r in rasters:
 		
 		raster_obj = gr.from_file(r)
-		
+		ndv, xsize, ysize, geot, projection, datatype = gr.get_geo_info(r) # Raster information
+
 		band_spectral_data = []
 		
 		csv_name = os.path.join(output_dir,os.path.basename(r)+'.csv')
@@ -64,7 +65,8 @@ if len(rasters) > 0 and len(coordinates) > 0:
 		with open(csv_name,'wb') as f:
 		
 			csvw = csv.writer(f, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    			csvw.writerow(['Label', 'Latitude', 'Longitude','Reflectance'])
+			csvw.writerow(projection.ExportToProj4())
+    			csvw.writerow(['Label', 'Easting', 'Northing', 'Reflectance'])
 			
 			for c in coordinates:
 				

@@ -16,7 +16,7 @@ import numpy as np
 from optparse import OptionParser
 import json
 import re
-    
+
 parser = OptionParser()
 parser.add_option("-c", "--cloud", dest="cloud", help="Location of cloud raster", metavar="CLOUD")
 
@@ -30,9 +30,11 @@ if options.cloud:
 
 # args[0] for config file
 # args[1] for LANDSAT TIF
+# args[2] for file prefix
 
 config_file = False
 landsat_raster = False
+file_prefix = ''
 
 if len(args) > 1:
 	if os.path.isfile(args[0]):
@@ -40,6 +42,9 @@ if len(args) > 1:
 
 	if os.path.isfile(args[1]):
 		landsat_raster = args[1]
+
+	file_prefix = args[2]
+
 
 m = re.search(r"B[0-9]+",landsat_raster)
 band_name = m.group()
@@ -159,8 +164,12 @@ output_gr = gr.GeoRaster(bcet_raster,
      projection=raster_clip[0].projection,
      datatype=raster_clip[0].datatype)
 
+output_dir_full = os.path.join(output_dir,file_prefix+'_'+run_title)
 
-new_path = os.path.join(output_dir,run_title+'_'+band_name+'.tif')
+if not os.path.exists(output_dir_full):
+  os.makedirs(output_dir_full)
+    
+new_path = os.path.join(output_dir_full,run_title+'_'+band_name+'.tif')
 print('Outputing '+new_path+' ...')
 # Make Geotiff
 output_gr.to_tiff(new_path)
