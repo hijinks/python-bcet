@@ -169,7 +169,7 @@ output_dir_full = os.path.join(output_dir,file_prefix+'_'+run_title)
 if not os.path.exists(output_dir_full):
   os.makedirs(output_dir_full)
     
-new_path = os.path.join(output_dir_full,run_title+'_'+band_name)
+new_path = os.path.join(output_dir_full,file_prefix+'_'+run_title+'_'+band_name)
 print('Outputing '+new_path+' ...')
 # Make Geotiff
 output_gr.to_tiff(new_path)
