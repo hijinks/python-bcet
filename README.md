@@ -18,6 +18,7 @@ The [GDAL](http://www.gdal.org/) library.
 
 Including ...
 - [gdal_merge.py](http://www.gdal.org/gdal_merge.html)
+- [Raster I/O Simplification (RIOS)](https://bitbucket.org/chchrsc/rios/overview)
 
 From [Fmask](http://pythonfmask.org/en/latest/) ...
 - fmask_usgsLandsatMakeAnglesImage.py
