@@ -121,6 +121,7 @@ else:
 #
 # BCET algebra
 #
+
 print('BCETing')
 
 s = np.mean(np.power(raster_processed,2)) # mean squared
