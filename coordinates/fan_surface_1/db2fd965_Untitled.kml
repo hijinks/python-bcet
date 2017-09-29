@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>db2fd965_Untitled.kmz</name>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>0</value>
+			</Data>
+			<Data name="label">
+				<value>8ed8a4b3</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1506633758545,37.73094604426975,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>1</value>
+			</Data>
+			<Data name="label">
+				<value>848bb8fb</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1450843811035,37.72999567755061,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>2</value>
+			</Data>
+			<Data name="label">
+				<value>effafb84</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1444835662842,37.72741604925924,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>3</value>
+			</Data>
+			<Data name="label">
+				<value>8615e7e4</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1391620635986,37.72952048961719,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>4</value>
+			</Data>
+			<Data name="label">
+				<value>19356a7a</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1402778625488,37.72544732510863,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>5</value>
+			</Data>
+			<Data name="label">
+				<value>6735dad9</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1316947937012,37.72585465164038,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>6</value>
+			</Data>
+			<Data name="label">
+				<value>47dbe60b</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1261157989502,37.72212074124947,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>7</value>
+			</Data>
+			<Data name="label">
+				<value>a8b4f0d7</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.125,37.72463266532466,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>8</value>
+			</Data>
+			<Data name="label">
+				<value>4d330368</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1202793121338,37.72218863220941,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>9</value>
+			</Data>
+			<Data name="label">
+				<value>bc26b275</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1171894073486,37.72313909911475,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<ExtendedData>
+			<Data name="system:index">
+				<value>10</value>
+			</Data>
+			<Data name="label">
+				<value>fac85569</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>-118.1147861480713,37.72157761132996,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
