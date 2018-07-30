@@ -1,4 +1,4 @@
-#!/bin/bash -       
+#!/bin/bash -
 #title		:bcet_only.sh
 #description	:Script that preprocesses raw ready-downloaded LANDSAT geotifs
 #author		:Sam Brooke
@@ -6,15 +6,17 @@
 #
 # Usage:
 #
-#	bash bcet_batch.sh pre_ ./LANDAT8/ 
+#	bash bcet_batch.sh pre_ ./LANDAT8/
 #
 
-file_prefix=$1 # Prefix to add before all outputted tiff files
-landsat_dir=$2 # Directory containing current landsat scene files
+landsat_dir=$1 # Directory containing current landsat scene files
+output_dir=$2 # Directory to export BCETed scene files
 mask=$3 # Apply cloud mask
 
+mkdir -p $output_dir
+
 if $mask; then
-  fmask_path=$landsat_dir'/fmask/' 
+  fmask_path=$landsat_dir'/fmask/'
   mkdir -p $fmask_path
 else
   fmask_path=false
@@ -34,8 +36,8 @@ do
 	gdal_translate -of GTiff -a_nodata 0 $f $f2
 	echo "BCET processing $f2 ..."
 	if $fmask_path; then
-	  python2.7 bcet.py ./config.json f2 $file_prefix
+	  python2.7 bcet.py ./config.json $f2 $output_dir
 	else
-	  python2.7 bcet.py ./config.json -c "$fmask_path"cloud.tif $f2 $file_prefix
+	  python2.7 bcet.py ./config.json -c "$fmask_path"cloud.tif $f2 $output_dir
 	fi
 done

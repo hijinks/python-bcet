@@ -1,6 +1,5 @@
 {
   "name": "mojave_bcet",
-  "output_dir": "./output",
   "roi": {
     "top_left": [
       372066.08,

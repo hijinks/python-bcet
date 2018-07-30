@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Use pixel difference and Kirsch filter to pick series of random points
+
 import georasters as gr
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,16 +10,16 @@ import random
 import string
 import csv
 
-diff_gr = gr.from_file('./diff.tif')
+diff_gr = gr.from_file('./output/diff.tif')
 
-ndv, xsize, ysize, geot, projection, datatype = gr.get_geo_info('./diff.tif') # Raster information
+ndv, xsize, ysize, geot, projection, datatype = gr.get_geo_info('./output/diff.tif') # Raster information
 
-edge_gr = gr.from_file('./k100.tif')
+edge_gr = gr.from_file('./output/k100.tif')
 
 raster_bounds = diff_gr.bounds
 
 lat_range = np.linspace(raster_bounds[0]+10, raster_bounds[2]-10, num=xsize, endpoint=False, retstep=False, dtype=float)
-lon_range = np.linspace(raster_bounds[1]+10, raster_bounds[3]-10, num=ysize, endpoint=False, retstep=False, dtype=float) 
+lon_range = np.linspace(raster_bounds[1]+10, raster_bounds[3]-10, num=ysize, endpoint=False, retstep=False, dtype=float)
 
 npz = np.zeros(diff_gr.raster.shape)
 
@@ -31,7 +33,7 @@ npd[np.where(diff_gr.raster < 1)] = 0
 
 npd_gr = gr.GeoRaster(npd,
                 diff_gr.geot,
-                nodata_value=ndv,                
+                nodata_value=ndv,
 		projection=diff_gr.projection,
                 datatype=diff_gr.datatype)
 
@@ -43,10 +45,10 @@ lat_random = np.random.choice(xsize, 20000)
 random_coords = np.vstack((lat_random,lon_random)).transpose()
 random_coords_unique = np.vstack(tuple(row) for row in random_coords)
 
-def valid_point(v): 
+def valid_point(v):
 	if v > 1:
 		return True
-			
+
 i = 0
 p = 0
 
@@ -65,5 +67,3 @@ with open('random_points3.csv', 'wb') as csvfile:
 			csvw.writerow([coord_lat, coord_lon, label])
 			p = p+1
 		i = i+1
-
-

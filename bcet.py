@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# BCET Workflow 
+# BCET Workflow
 
 __author__ = 'Sam Brooke'
 __date__ = 'September 2017'
@@ -44,7 +44,7 @@ if len(args) > 1:
 	if os.path.isfile(args[1]):
 		landsat_raster = args[1]
 
-	file_prefix = args[2]
+	output_dir = args[2]
 
 
 m = re.search(r"B[0-9]+",landsat_raster)
@@ -52,7 +52,7 @@ band_name = m.group()
 
 config_data = False
 if config_file:
-	with open(config_file) as data_file:    
+	with open(config_file) as data_file:
     		config_data = json.load(data_file)
 
 
@@ -62,19 +62,15 @@ keys = config_data.keys()
 
 roi = False
 run_title = 'untitled'
-output_dir = './'
 
 if 'roi' in keys:
 	top_left = config_data['roi']['top_left']
 	bottom_right = config_data['roi']['bottom_right']
 	roi = True
-	
+
 if 'name' in keys:
 	run_title = config_data['name']
 
-if 'output_dir' in keys:
-	output_dir = config_data['output_dir']
-	
 if roi:
 # Create Polygon of ROI
 	roi_poly = Polygon([(top_left[0], top_left[1]), (bottom_right[0], top_left[1]), (bottom_right[0], bottom_right[1]), (top_left[0], bottom_right[1])])
@@ -83,7 +79,7 @@ if roi:
 # Load and Process Rasters
 #
 
-# Load Raster 
+# Load Raster
 raster = os.path.join(landsat_raster)
 ndv, xsize, ysize, geot, projection, datatype = gr.get_geo_info(raster) # Raster information
 # ndv = no data value
@@ -102,9 +98,9 @@ else:
 if cloud_tif:
 	print('Preparing cloud mask')
 	# Cloud mask layer
-	# See 
+	# See
 	cloud_mask = os.path.join(cloud_tif)
-	cloud_mask_gr = gr.from_file(cloud_mask)  
+	cloud_mask_gr = gr.from_file(cloud_mask)
 	cloud_clip = cloud_mask_gr.clip(clip_df)
 	cloud_data = cloud_clip[0].raster
 
@@ -114,7 +110,7 @@ raster_masked = np.ma.masked_invalid(raster_data, copy=True)
 if cloud_tif:
 	print('Running cloud mask')
 	# Mask clouds, snow and shadows
-	raster_processed = np.where(cloud_data == 1, raster_masked, ndv) 
+	raster_processed = np.where(cloud_data == 1, raster_masked, ndv)
 else:
 	raster_processed = raster_masked
 
@@ -166,12 +162,12 @@ output_gr = gr.GeoRaster(bcet_raster,
      projection=raster_clip[0].projection,
      datatype=raster_clip[0].datatype)
 
-output_dir_full = os.path.join(output_dir,file_prefix+'_'+run_title)
+output_dir_full = os.path.join(output_dir,run_title)
 
 if not os.path.exists(output_dir_full):
   os.makedirs(output_dir_full)
-    
-new_path = os.path.join(output_dir_full,file_prefix+'_'+run_title+'_'+band_name)
+
+new_path = os.path.join(output_dir_full,run_title+'_'+band_name)
 print('Outputing '+new_path+' ...')
 # Make Geotiff
 output_gr.to_tiff(new_path)
@@ -181,5 +177,3 @@ output_gr.to_tiff(new_path)
 ds = gdal.Open(new_path+'.tif', gdal.GA_Update)
 ds.SetMetadataItem('ORIGINAL_LANDSAT', os.path.basename(landsat_raster))
 ds.FlushCache()
-
-

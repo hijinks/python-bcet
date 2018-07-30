@@ -62,7 +62,7 @@ output_gr = gr.GeoRaster(gmax50,
                 projection=T1_gr.projection,
                 datatype=T1_gr.datatype)
 
-output_gr.to_tiff('./k50')
+output_gr.to_tiff('./output/k50')
 
 output_gr = gr.GeoRaster(gmax100,
                 T1_gr.geot,
@@ -70,7 +70,7 @@ output_gr = gr.GeoRaster(gmax100,
                 projection=T1_gr.projection,
                 datatype=T1_gr.datatype)
 
-output_gr.to_tiff('./k100')
+output_gr.to_tiff('./output/k100')
 
 output_gr = gr.GeoRaster(gmax150,
                 T1_gr.geot,
@@ -78,7 +78,7 @@ output_gr = gr.GeoRaster(gmax150,
                 projection=T1_gr.projection,
                 datatype=T1_gr.datatype)
 
-output_gr.to_tiff('./k150')
+output_gr.to_tiff('./output/k150')
 
 output_gr = gr.GeoRaster(gmax200,
                 T1_gr.geot,
@@ -86,7 +86,7 @@ output_gr = gr.GeoRaster(gmax200,
                 projection=T1_gr.projection,
                 datatype=T1_gr.datatype)
 
-output_gr.to_tiff('./k200')
+output_gr.to_tiff('./output/k200')
 
 output_gr = gr.GeoRaster(gmax250,
                 T1_gr.geot,
@@ -94,8 +94,4 @@ output_gr = gr.GeoRaster(gmax250,
                 projection=T1_gr.projection,
                 datatype=T1_gr.datatype)
 
-output_gr.to_tiff('./k250')
-
-
-
-
+output_gr.to_tiff('./output/k250')

@@ -1,4 +1,4 @@
-#!/bin/bash -       
+#!/bin/bash -
 #title		:bcet_only.sh
 #description	:Script that preprocesses raw ready-downloaded LANDSAT geotifs
 #author		:Sam Brooke
@@ -11,6 +11,8 @@
 
 input_directory=$1
 output_directory=$2
+
+mkdir -p $output_directory
 
 # BCET Bands
 for f in "$input_directory"LC08*B[1-7].TIF

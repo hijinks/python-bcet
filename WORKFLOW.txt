@@ -1,8 +1,0 @@
-## python-bcet workflow
-
-# Needed to convert to 8 bit rasters
-bash convert_to_8bit_batch.sh ./LANDSAT8/ ./LANDSAT8/8bit/
-
-# BCET
-bash ./bcet_only.sh pre_ ./LANDSAT8/8bit/ -c 0
-

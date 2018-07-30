@@ -35,11 +35,4 @@ output_gr = gr.GeoRaster(Rdiff,
      projection=T1_gr.projection,
      datatype=T1_gr.datatype)
 
-output_gr.to_tiff('./diff')
-
-
-
-
-
-
-
+output_gr.to_tiff('./output/diff')
