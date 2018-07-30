@@ -13,7 +13,7 @@ require(grid)
 library(lattice)
 
 # Python source
-c <- read.csv("./data_random/random_python.csv", header = TRUE, sep=",")
+c <- read.csv("../data_random/random_python.csv", header = TRUE, sep=",")
 
 DT <- data.table(c)
 DT[DT == "--"] <- NA
@@ -25,7 +25,7 @@ py_std <- dcast(py_std, Label ~ Band , ) # Show std per band per label
 
 
 # GEE source
-d <- read.csv("./data_random/random_gee.csv", header = TRUE, sep=",")
+d <- read.csv("../data_random/random_gee.csv", header = TRUE, sep=",")
 
 gee_ref <- data.frame(Label=d$label, B1=d$B1_BCET, B2=d$B2_BCET, B3=d$B3_BCET, B4=d$B4_BCET, B5=d$B5_BCET, B6=d$B6_BCET, B7=d$B7_BCET)
 
@@ -65,8 +65,8 @@ for (b in bands){
 	  xlim(low=0,high=200) +
 	  geom_text(x = 80, y = 185, label = lm_eqn(df), parse = TRUE) +
 	  stat_function(fun=eq, gem="line", linetype=2) +
-	  labs(title=paste('Band',i,'-',subtitles[i]), x="R* (Composite)", y="R* (GEE)") +
+      labs(title=paste('Band',i,'-',subtitles[i]), x=expression('DN'['BCET']~'(Composite)'), y=expression('DN'['BCET']~'(GEE)')) +
 	  theme_bw()
-  ggsave(paste('./plots/random/',b,".pdf", sep=''), width = 4, height = 4, dpi = 220)
+  ggsave(paste('../plots/random/',b,".pdf", sep=''), width = 4, height = 4, dpi = 220)
   i = i+1
 }
