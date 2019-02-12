@@ -1,0 +1,26 @@
+#Sensitivity Tests
+
+Younger fan deposits vs. older fan deposits?
+Sediment (alluvial fans, glacial morraines) 10 points
+Vegetation (sierra nevada) 10 points
+Outcrop (sierra nevada) 10 points
+
+Time variation
+Difference scenes vs. cloud composite
+
+Month correlation
+
+Difference scenes vs. cloud composit
+Between Landsat 8 and Sentinel 2 for 10 different days?
+
+# Figures
+
+Figure 1 - Landsat Bands Diagram and lithological importance
+Figure 2 - BCET diagramatic
+Figure 3 - Startup 
+Figure 4 - ROI & Band selection
+Figure 5 - Point selection
+Figure 6 - Landsat Scene & test case locations (Fans,morrains,forests,outcrop)
+Figure 7 - Variation over cloud-free landsat scenes vs. cloud free composite in spectral point
+Figure 8 - Difference between sentinel 2 scenes and landat 8
+Figure 9 - Systematic difference between BCET scene in Arc, QGIS, ERMapper & GEE.
